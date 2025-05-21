@@ -1,11 +1,9 @@
-const windowManager = (() => {
-  let zIndex = 1000;
+let zIndex = 1000;
   let windowCount = 0;
   let dragData = null;
   const galleries = {};
   let avatarLines = {};
 
-  // Load avatar lines JSON
   fetch("assets/json/avatar-lines.json")
     .then((res) => res.json())
     .then((data) => {
@@ -18,15 +16,15 @@ const windowManager = (() => {
   function createWindow(title, content) {
     const desktop = document.getElementById("desktop");
     const win = document.createElement("div");
-    const windowId = `window-${windowCount++}`;
+    const windowId = window-${windowCount++};
     win.classList.add("window");
     win.id = windowId;
-    win.style.left = `${100 + windowCount * 30}px`;
-    win.style.top = `${100 + windowCount * 30}px`;
+    win.style.left = ${100 + windowCount * 30}px;
+    win.style.top = ${100 + windowCount * 30}px;
     win.style.zIndex = ++zIndex;
     win.setAttribute("data-window-id", windowId);
 
-    win.innerHTML = `
+    win.innerHTML = 
       <div class="title-bar">
         <span>${title}</span>
         <div class="window-controls">
@@ -34,7 +32,7 @@ const windowManager = (() => {
         </div>
       </div>
       <div class="window-content">${content}</div>
-    `;
+    ;
 
     const titleBar = win.querySelector(".title-bar");
     titleBar.onmousedown = (e) => startDrag(e, win);
@@ -55,7 +53,7 @@ const windowManager = (() => {
       // Slight delay to let the sound finish if needed
       setTimeout(() => {
         win.remove();
-      }, 150);
+      }, 150); // adjust delay to match sound length
     }
   }
 
@@ -72,8 +70,8 @@ const windowManager = (() => {
 
   function doDrag(e) {
     if (!dragData) return;
-    dragData.el.style.left = `${e.clientX - dragData.offsetX}px`;
-    dragData.el.style.top = `${e.clientY - dragData.offsetY}px`;
+    dragData.el.style.left = ${e.clientX - dragData.offsetX}px;
+    dragData.el.style.top = ${e.clientY - dragData.offsetY}px;
   }
 
   function stopDrag() {
@@ -86,45 +84,47 @@ const windowManager = (() => {
     title = "Gallery <br> hover over the image for more info!",
     imageList = null
   ) {
-    // Default images — paths relative to index.html (root)
     const images = imageList || [
-      { src: "assets/images/packshot.png", title: "MIPA Packshot" },
-      { src: "assets/images/hero.png", title: "MIPA Hero" },
-      { src: "assets/images/instagram.png", title: "Typography Poster" },
-      { src: "assets/images/MRC1.png", title: "Mobile Repair Center logo 1" },
-      { src: "assets/images/MRC2.png", title: "Mobile Repair Center logo 2" },
-      { src: "assets/images/footbal1.png", title: "Anti-discrimination poster" },
+      { src: "../assets/images/packshot.png", title: "MIPA Packshot" },
+      { src: "../assets/images/hero.png", title: "MIPA Hero" },
+      { src: "../assets/images/instagram.png", title: "Typography Poster" },
+      { src: "../assets/images/MRC1.png", title: "Mobile Repair Center logo 1" },
+      { src: "../assets/images/MRC2.png", title: "Mobile Repair Center logo 2" },
+      {
+        src: "assets/images/footbal1.png",
+        title: "Anti-discrimination poster",
+      },
     ];
 
-    const winId = `gallery-${Date.now()}`;
+    const winId = gallery-${Date.now()};
 
     // Gallery window structure with loading text and loading bar
-    const content = `
-      <div class="gallery-window" id="${winId}">
-        <div class="loading-bar-container">
-          <div class="loading-bar"></div>
-        </div>
-        <p class="loading-text">Loading images...</p>
-        <div class="gallery-img-wrapper">
-          <img src="" data-src="${images[0].src}" alt="" class="gallery-img" />
-        </div>
-        <p class="gallery-title">${images[0].title}</p>
-        <div class="gallery-controls">
-          <button onclick="windowManager.prevImage('${winId}')">⬅</button>
-          <button onclick="windowManager.nextImage('${winId}')">➡</button>
-        </div>
+    const content = 
+    <div class="gallery-window" id="${winId}">
+      <div class="loading-bar-container">
+        <div class="loading-bar"></div>
       </div>
-    `;
+      <p class="loading-text">Loading images...</p>
+<div class="gallery-img-wrapper">
+  <img src="" data-src="${images[0].src}" alt="" class="gallery-img" />
+</div>
+      <p class="gallery-title">${images[0].title}</p>
+      <div class="gallery-controls">
+        <button onclick="windowManager.prevImage('${winId}')">⬅</button>
+        <button onclick="windowManager.nextImage('${winId}')">➡</button>
+      </div>
+    </div>
+  ;
 
     createWindow(title, content);
     galleries[winId] = { index: 0, images };
 
-    // Select elements *inside the newly created window only*
-    const galleryWindow = document.getElementById(winId);
-    const imgElement = galleryWindow.querySelector(".gallery-img");
-    const loadingBar = galleryWindow.querySelector(".loading-bar");
-    const loadingContainer = galleryWindow.querySelector(".loading-bar-container");
-    const loadingText = galleryWindow.querySelector(".loading-text");
+    const imgElement = document.querySelector(#${winId} .gallery-img);
+    const loadingBar = document.querySelector(#${winId} .loading-bar);
+    const loadingContainer = document.querySelector(
+      #${winId} .loading-bar-container
+    );
+    const loadingText = document.querySelector(#${winId} .loading-text);
 
     // Simulate loading of the image with a delay
     setTimeout(() => {
@@ -134,11 +134,11 @@ const windowManager = (() => {
         setTimeout(() => {
           loadingText.style.display = "none"; // Hide loading text
           loadingBar.style.display = "none"; // Hide loading bar
-          loadingContainer.style.display = "none"; // Hide loading bar container
+          loadingContainer.style.display = "none"; // Hide loading bar
           imgElement.style.display = "block"; // Show the image
-        }, 500);
+        }, 500); // Delay to show "Image Loaded!" message
       };
-    }, 500); // A short delay for effect
+    }, Math.random() * 0 + 0); // Random delay between 2 and 5 seconds
   }
 
   function updateGallery(winId) {
@@ -147,11 +147,8 @@ const windowManager = (() => {
     if (!gallery || !el) return;
 
     const { index, images } = gallery;
-    const img = el.querySelector(".gallery-img");
-    const title = el.querySelector(".gallery-title");
-    img.src = images[index].src;
-    img.setAttribute("data-src", images[index].src);
-    title.textContent = images[index].title;
+    el.querySelector(".gallery-img").src = images[index].src;
+    el.querySelector(".gallery-title").textContent = images[index].title;
   }
 
   function prevImage(winId) {
@@ -168,7 +165,6 @@ const windowManager = (() => {
     gallery.index = (gallery.index + 1) % gallery.images.length;
     updateGallery(winId);
   }
-
   document.addEventListener("DOMContentLoaded", () => {
     const clickSound = document.getElementById("open-sound");
 
@@ -181,18 +177,18 @@ const windowManager = (() => {
       });
     });
   });
-
   function setupAvatarInteraction() {
     const avatar = document.getElementById("avatar");
     const bubble = document.getElementById("speech-bubble");
     const sound1 = document.getElementById("talk-sound-1");
     const sound2 = document.getElementById("talk-sound-2");
     const sound3 = document.getElementById("talk-sound-3");
-    const eyeImg = document.getElementById("avatar-eyes");
+    const eyeImg = document.getElementById("avatar-eyes"); // Eyes element
     let talkingTimeout;
     let lastSoundPlayed = 0;
-    let eyeMovementActive = true;
+    let eyeMovementActive = true; // Flag to control eye movement
 
+    // Only respond to gallery images
     document.addEventListener("mouseover", (e) => {
       const img = e.target.closest(".gallery-img");
       if (img) {
@@ -200,10 +196,12 @@ const windowManager = (() => {
         eyeImg.classList.add("talking");
         bubble.style.display = "block";
 
+        // Get the image title
         const imgSrc = img.getAttribute("src");
         const line = avatarLines[imgSrc];
-        bubble.textContent = line || "Interesting...";
+        bubble.textContent = line || "Intresting...";
 
+        // Alternate between three sounds
         const sound =
           lastSoundPlayed === 1
             ? sound2
@@ -219,6 +217,7 @@ const windowManager = (() => {
           sound.play();
         }
 
+        // Clear and restart timeout
         clearTimeout(talkingTimeout);
         talkingTimeout = setTimeout(() => {
           avatar.classList.remove("talking");
@@ -227,6 +226,7 @@ const windowManager = (() => {
       }
     });
 
+    // Stop animation when mouse leaves the gallery image
     document.addEventListener("mouseout", (e) => {
       if (e.target.closest(".gallery-img")) {
         clearTimeout(talkingTimeout);
@@ -241,15 +241,18 @@ const windowManager = (() => {
     document.addEventListener("mousemove", (e) => {
       if (!eyeImg || !avatar) return;
 
+      // Get the center of the avatar's eyes
       const rect = eyeImg.getBoundingClientRect();
       const centerX = rect.left + rect.width / 2;
       const centerY = rect.top + rect.height / 2;
 
+      // Get angle between mouse and center of the eyes (avatar)
       const angle = Math.atan2(e.clientY - centerY, e.clientX - centerX);
       const degrees = angle * (180 / Math.PI);
 
+      // If eye movement is active, rotate the eyes
       if (eyeMovementActive) {
-        eyeImg.style.transform = `rotate(${degrees}deg)`;
+        eyeImg.style.transform = rotate(${degrees}deg);
       }
     });
   }
