@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>XP Window Manager</title>
+    <link rel="stylesheet" href="css/style2.css" />
+    <link rel="stylesheet" href="css/font.css" />
+    <script src="/javascript/windowmanager.js"></script>
+    <script src="/javascript/drawmanager.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Syncopate:wght@400;700&family=Trade+Winds&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <div class="vaporwave-particles">
+    <span></span><span></span><span></span> <span></span><span></span
+    ><span></span><span></span>
+  </div>
+
+  <body id="screen">
+    <button onclick="windowManager.createGalleryWindow()">
+      Open Portfolio
+    </button>
+    <button onclick="drawGalleryApp.createGallery()">
+      Open Drawing Gallery
+    </button>
+    <button onclick="windowManager.createWindow('Fun Facts', '')">
+      Fun Facts
+    </button>
+    <button
+      onclick="windowManager.createWindow('About Me', 'Hi i am Dennis, a student in Graphic design & Digital Media. This is website is my portfolio containing my projects but also drawings i made.')"
+    >
+      About Me
+    </button>
+    <form action="">
+      <div>Talk to Dalo</div>
+      <input type="text" placeholder="Type Something" name="interact" />
+    </form>
+    <div id="desktop"></div>
+    <div id="avatar-wrapper">
+      <div id="avatar-container">
+        <div id="speech-bubble">Hello there!</div>
+        <img id="avatar" src="assets/images/AvatarFaceLess2.png" alt="Avatar" />
+        <img id="avatar-eyes" src="assets/images/AvatarFace2.png" alt="Eyes" />
+      </div>
+    </div>
+    <audio
+      id="open-sound"
+      src="assets/sounds2/phaseJump3.ogg"
+      preload="auto"
+    ></audio>
+    <audio
+      id="close-sound"
+      src="assets/sounds2/lowRandom.ogg"
+      preload="auto"
+    ></audio>
+
+    <audio
+      id="talk-sound-1"
+      src="assets/sounds2/threeTone1.ogg"
+      preload="auto"
+    ></audio>
+    <audio
+      id="talk-sound-2"
+      src="assets/sounds2/lowThreeTone.ogg"
+      preload="auto"
+    ></audio>
+    <audio
+      id="talk-sound-3"
+      src="assets/sounds2/pepSound3.ogg"
+      preload="auto"
+    ></audio>
+
+    <div id="crt-overlay"></div>
+  </body>
+</html>
