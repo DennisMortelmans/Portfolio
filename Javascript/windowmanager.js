@@ -86,11 +86,11 @@ const windowManager = (() => {
     imageList = null
   ) {
     const images = imageList || [
-      { src: "assets/images/packshot.png", title: "MIPA Packshot" },
-      { src: "assets/images/hero.png", title: "MIPA Hero" },
-      { src: "assets/images/instagram.png", title: "Typography Poster" },
-      { src: "assets/images/MRC1.png", title: "Mobile Repair Center logo 1" },
-      { src: "assets/images/MRC2.png", title: "Mobile Repair Center logo 2" },
+      { src: "../assets/images/packshot.png", title: "MIPA Packshot" },
+      { src: "../assets/images/hero.png", title: "MIPA Hero" },
+      { src: "../assets/images/instagram.png", title: "Typography Poster" },
+      { src: "../assets/images/MRC1.png", title: "Mobile Repair Center logo 1" },
+      { src: "../assets/images/MRC2.png", title: "Mobile Repair Center logo 2" },
       {
         src: "assets/images/footbal1.png",
         title: "Anti-discrimination poster",
