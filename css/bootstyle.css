@@ -1,0 +1,20 @@
+body {
+  background-color: black;
+  color: #d813ab;
+  font-size: 16px;
+  padding: 20px;
+  white-space: pre-wrap;
+}
+
+#boot-screen {
+  max-width: 800px;
+  margin: auto;
+  font-family: "Syncopate", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.syncopate-regular {
+  font-family: "Syncopate", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
