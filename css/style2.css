@@ -1,5 +1,5 @@
 body {
-  background: url("/assets/images/bg2.jpeg") center center / cover no-repeat
+  background: url("assets/images/bg2.jpeg") center center / cover no-repeat
     fixed;
   font-family: "Syncopate", sans-serif;
   font-weight: 400;
