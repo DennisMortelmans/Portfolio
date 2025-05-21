@@ -1,4 +1,5 @@
-let zIndex = 1000;
+const windowManager = (() => {
+  let zIndex = 1000;
   let windowCount = 0;
   let dragData = null;
   const galleries = {};
@@ -16,15 +17,15 @@ let zIndex = 1000;
   function createWindow(title, content) {
     const desktop = document.getElementById("desktop");
     const win = document.createElement("div");
-    const windowId = window-${windowCount++};
+    const windowId = `window-${windowCount++}`;
     win.classList.add("window");
     win.id = windowId;
-    win.style.left = ${100 + windowCount * 30}px;
-    win.style.top = ${100 + windowCount * 30}px;
+    win.style.left = `${100 + windowCount * 30}px`;
+    win.style.top = `${100 + windowCount * 30}px`;
     win.style.zIndex = ++zIndex;
     win.setAttribute("data-window-id", windowId);
 
-    win.innerHTML = 
+    win.innerHTML = `
       <div class="title-bar">
         <span>${title}</span>
         <div class="window-controls">
@@ -32,7 +33,7 @@ let zIndex = 1000;
         </div>
       </div>
       <div class="window-content">${content}</div>
-    ;
+    `;
 
     const titleBar = win.querySelector(".title-bar");
     titleBar.onmousedown = (e) => startDrag(e, win);
@@ -70,8 +71,8 @@ let zIndex = 1000;
 
   function doDrag(e) {
     if (!dragData) return;
-    dragData.el.style.left = ${e.clientX - dragData.offsetX}px;
-    dragData.el.style.top = ${e.clientY - dragData.offsetY}px;
+    dragData.el.style.left = `${e.clientX - dragData.offsetX}px`;
+    dragData.el.style.top = `${e.clientY - dragData.offsetY}px`;
   }
 
   function stopDrag() {
@@ -85,21 +86,21 @@ let zIndex = 1000;
     imageList = null
   ) {
     const images = imageList || [
-      { src: "../assets/images/packshot.png", title: "MIPA Packshot" },
-      { src: "../assets/images/hero.png", title: "MIPA Hero" },
-      { src: "../assets/images/instagram.png", title: "Typography Poster" },
-      { src: "../assets/images/MRC1.png", title: "Mobile Repair Center logo 1" },
-      { src: "../assets/images/MRC2.png", title: "Mobile Repair Center logo 2" },
+      { src: "assets/images/packshot.png", title: "MIPA Packshot" },
+      { src: "assets/images/hero.png", title: "MIPA Hero" },
+      { src: "assets/images/instagram.png", title: "Typography Poster" },
+      { src: "assets/images/MRC1.png", title: "Mobile Repair Center logo 1" },
+      { src: "assets/images/MRC2.png", title: "Mobile Repair Center logo 2" },
       {
         src: "assets/images/footbal1.png",
         title: "Anti-discrimination poster",
       },
     ];
 
-    const winId = gallery-${Date.now()};
+    const winId = `gallery-${Date.now()}`;
 
     // Gallery window structure with loading text and loading bar
-    const content = 
+    const content = `
     <div class="gallery-window" id="${winId}">
       <div class="loading-bar-container">
         <div class="loading-bar"></div>
@@ -114,17 +115,17 @@ let zIndex = 1000;
         <button onclick="windowManager.nextImage('${winId}')">➡</button>
       </div>
     </div>
-  ;
+  `;
 
     createWindow(title, content);
     galleries[winId] = { index: 0, images };
 
-    const imgElement = document.querySelector(#${winId} .gallery-img);
-    const loadingBar = document.querySelector(#${winId} .loading-bar);
+    const imgElement = document.querySelector(`#${winId} .gallery-img`);
+    const loadingBar = document.querySelector(`#${winId} .loading-bar`);
     const loadingContainer = document.querySelector(
-      #${winId} .loading-bar-container
+      `#${winId} .loading-bar-container`
     );
-    const loadingText = document.querySelector(#${winId} .loading-text);
+    const loadingText = document.querySelector(`#${winId} .loading-text`);
 
     // Simulate loading of the image with a delay
     setTimeout(() => {
@@ -252,7 +253,7 @@ let zIndex = 1000;
 
       // If eye movement is active, rotate the eyes
       if (eyeMovementActive) {
-        eyeImg.style.transform = rotate(${degrees}deg);
+        eyeImg.style.transform = `rotate(${degrees}deg)`;
       }
     });
   }
