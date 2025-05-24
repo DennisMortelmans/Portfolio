@@ -259,7 +259,47 @@ const windowManager = (() => {
   }
 
   document.addEventListener("DOMContentLoaded", setupAvatarInteraction);
+  // Enable touch support for dragging windows on mobile devices
+  function startTouchDrag(e, win) {
+    if (e.touches.length !== 1) return;
+    const touch = e.touches[0];
+    dragData = {
+      el: win,
+      offsetX: touch.clientX - win.offsetLeft,
+      offsetY: touch.clientY - win.offsetTop,
+    };
+    win.style.zIndex = ++zIndex;
+    document.ontouchmove = doTouchDrag;
+    document.ontouchend = stopTouchDrag;
+  }
 
+  function doTouchDrag(e) {
+    if (!dragData || e.touches.length !== 1) return;
+    const touch = e.touches[0];
+    dragData.el.style.left = `${touch.clientX - dragData.offsetX}px`;
+    dragData.el.style.top = `${touch.clientY - dragData.offsetY}px`;
+  }
+
+  function stopTouchDrag() {
+    document.ontouchmove = null;
+    document.ontouchend = null;
+    dragData = null;
+  }
+
+  // Attach touch event listeners to window title bars
+  document.addEventListener("DOMContentLoaded", () => {
+    document.addEventListener(
+      "touchstart",
+      function (e) {
+        const titleBar = e.target.closest(".title-bar");
+        const win = titleBar && titleBar.parentElement;
+        if (titleBar && win && win.classList.contains("window")) {
+          startTouchDrag(e, win);
+        }
+      },
+      { passive: false }
+    );
+  });
   return {
     createWindow,
     closeWindow,

@@ -1,8 +1,8 @@
 body {
-background-image: url("../assets/images/bg2.jpeg");
-background-position: center center;
-background-size: cover;
-background-repeat: no-repeat;
+  background-image: url("../assets/images/bg2.jpeg");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
 
   font-family: "Syncopate", sans-serif;
   font-weight: 400;
@@ -61,7 +61,7 @@ form > input {
 .window {
   width: 300px;
   position: absolute;
-  background: #c0c0c0;
+  background: #ffffff;
   border: 2px outset #fff;
   box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
   z-index: 1;
@@ -121,7 +121,7 @@ form > input {
   left: -50%;
   width: 200%;
   height: 200%;
-  background: linear-gradient(0deg, #55def0, #d813ab, #55def0);
+  background: linear-gradient(0deg, #55def0, #d813ab, #55def0, #ffd700);
   animation: spinGradient 6s linear infinite;
   z-index: -1;
 }
@@ -300,5 +300,44 @@ form > input {
   }
   to {
     box-shadow: 0 0 8px 3px rgba(216, 19, 171, 0.4);
+  }
+}
+@media screen and (max-width: 600px) {
+  #avatar-wrapper {
+    position: fixed;
+    left: 52%;
+    top: 90%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #avatar {
+    width: 280px;
+  }
+  #speech-bubble {
+    font-size: 10px;
+  }
+  .window {
+    width: 250px;
+    position: absolute;
+    background: #ffffff;
+    border: 2px outset #fff;
+    box-shadow: none;
+    z-index: 4;
+  }
+  button {
+    margin: 4px;
+    background: linear-gradient(to right, #d813ab, #ffd700);
+    padding: 5px 5px;
+    text-transform: lowercase;
+    box-shadow: 0 0 10px#55def0, 0 0 15px #d813ab;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  form {
+    display: none;
   }
 }
