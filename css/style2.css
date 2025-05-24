@@ -307,7 +307,7 @@ form > input {
   }
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 900px) {
   #avatar-wrapper {
     position: fixed;
     left: 52%;
