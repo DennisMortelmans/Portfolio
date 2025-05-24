@@ -184,7 +184,8 @@ const windowManager = (() => {
     const sound1 = document.getElementById("talk-sound-1");
     const sound2 = document.getElementById("talk-sound-2");
     const sound3 = document.getElementById("talk-sound-3");
-    const eyeImg = document.getElementById("avatar-eyes"); // Eyes element
+    const eyeImg = document.getElementById("avatar-eyes");
+    const buddyImg = document.getElementById("avatar-mobile");
     let talkingTimeout;
     let lastSoundPlayed = 0;
     let eyeMovementActive = true; // Flag to control eye movement
@@ -195,6 +196,7 @@ const windowManager = (() => {
       if (img) {
         avatar.classList.add("talking");
         eyeImg.classList.add("talking");
+        buddyImg.classList.add("talking");
         bubble.style.display = "block";
 
         // Get the image title
@@ -234,6 +236,8 @@ const windowManager = (() => {
         talkingTimeout = setTimeout(() => {
           avatar.classList.remove("talking");
           eyeImg.classList.remove("talking");
+          buddyImg.classList.remove("talking");
+
           bubble.style.display = "none";
         }, 500);
       }
@@ -279,6 +283,40 @@ const windowManager = (() => {
     dragData.el.style.left = `${touch.clientX - dragData.offsetX}px`;
     dragData.el.style.top = `${touch.clientY - dragData.offsetY}px`;
   }
+  document.addEventListener("mousedown", function (e) {
+    const win = e.target.closest(".window");
+    if (win) {
+      startDrag(e, win);
+    }
+  });
+
+  document.addEventListener(
+    "touchstart",
+    function (e) {
+      const win = e.target.closest(".window");
+      if (win) {
+        startTouchDrag(e, win);
+      }
+    },
+    { passive: false }
+  );
+  document.addEventListener("mousedown", function (e) {
+    const win = e.target.closest(".window");
+    if (win) {
+      startDrag(e, win);
+    }
+  });
+
+  document.addEventListener(
+    "touchstart",
+    function (e) {
+      const win = e.target.closest(".window");
+      if (win) {
+        startTouchDrag(e, win);
+      }
+    },
+    { passive: false }
+  );
 
   function stopTouchDrag() {
     document.ontouchmove = null;
