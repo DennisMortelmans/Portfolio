@@ -30,7 +30,7 @@ function typeLine() {
     setTimeout(typeLine, 300);
   } else {
     setTimeout(() => {
-      window.location.href = "index.html";
+      window.location.href = "home.html";
     }, 1500);
   }
 }
