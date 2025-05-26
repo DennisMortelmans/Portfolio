@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
+    <meta charset="8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>ABoutMe</title>
     <link rel="stylesheet" href="css/style2.css" />
     <link rel="stylesheet" href="css/font.css" />
     <script src="Javascript/windowmanager.js"></script>
     <script src="Javascript/drawmanager.js"></script>
+    <script src="Javascript/dataManager.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -26,9 +27,7 @@
     <button onclick="drawGalleryApp.createGallery()">
       Open Drawing Gallery
     </button>
-    <button onclick="windowManager.createWindow('Fun Facts', '')">
-      Fun Facts
-    </button>
+    <button onclick="dataApp.createData()">Fun Facts</button>
     <button
       onclick="windowManager.createWindow('About Me', 'Hi i am Dennis, a student in Graphic design & Digital Media. This is website is my portfolio containing my projects but also drawings i made.')"
     >

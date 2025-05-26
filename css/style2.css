@@ -325,7 +325,7 @@ form > input {
     display: none;
   }
   #speech-bubble {
-    bottom: 220px;
+    bottom: 280px;
     left: -100px;
     font-size: 10px;
   }
@@ -349,17 +349,17 @@ form > input {
     display: none;
   }
   #avatar {
-    display: none; /* hide desktop avatar on mobile */
+    display: none;
   }
   #avatar-eyes {
-    display: none; /* hide desktop avatar on mobile */
+    display: none;
   }
   #avatar-mobile {
-    width: 500px; /* match your mobile size */
+    width: 500px;
     position: fixed;
-    bottom: 75px;
+    bottom: 25px;
     left: -250px;
-    display: block; /* show mobile avatar on mobile */
+    display: block;
   }
   #avatar-mobile.talking {
     animation: talk 0.15s infinite alternate ease-in-out;
