@@ -27,7 +27,7 @@ function typeLine() {
   if (i < bootLines.length) {
     bootScreen.innerHTML += bootLines[i] + "\n";
     i++;
-    setTimeout(typeLine, 300);
+    setTimeout(typeLine, 100);
   } else {
     setTimeout(() => {
       window.location.href = "home.html";
