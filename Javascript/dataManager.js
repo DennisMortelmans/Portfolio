@@ -7,8 +7,21 @@ const dataApp = (() => {
   // ✅ Hardcoded image list with descriptions
   const images = [
     {
-      src: "assets/images/AvatarFace.png",
-      title: "Test",
+      src: "assets/images/data/berichten.png",
+      title: "How many messages?",
+    },
+    {
+      src: "assets/images/data/meldingen.png",
+      title: "How many notifications?",
+    },
+    {
+      src: "assets/images/data/work.png",
+      title: "How many times do i loose track of time while working?",
+    },
+    { src: "assets/images/data/world.png", title: "Building a world?" },
+    {
+      src: "assets/images/data/youtube.png",
+      title: "How much time do I spend on YouTube?",
     },
   ];
   function createWindow(title, content) {

@@ -105,7 +105,6 @@ form > input {
   position: relative;
   width: 100%;
   max-width: 300px;
-  max-height: 300px;
   margin-bottom: 10px;
   padding: 4px;
   border-radius: 10px;
@@ -128,9 +127,9 @@ form > input {
 
 .gallery-img {
   width: 100%;
-  height: auto;
+  height: 40%;
   max-width: 100%;
-  max-height: 100%;
+  max-height: 50%;
   object-fit: contain;
   border-radius: 6px;
   display: block;
