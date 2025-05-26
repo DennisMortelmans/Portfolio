@@ -3,7 +3,7 @@ body {
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
-
+  z-index: -2;
   font-family: "Syncopate", sans-serif;
   font-weight: 400;
   font-style: normal;
@@ -210,9 +210,25 @@ form > input {
   transition: transform 0.1s linear;
 }
 #avatar-mobile {
-  display: none; /* hide mobile avatar by default */
-  width: 280px; /* match your mobile size */
+  display: none;
+  width: 280px;
 }
+.floating-vaporwave {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  pointer-events: none;
+  opacity: 0;
+  mix-blend-mode: screen;
+  filter: contrast(1.2) saturate(1.5) hue-rotate(290deg);
+  transition: opacity 0.3s ease-in-out, transform 2s ease-in-out;
+  z-index: -1;
+}
+
 .vaporwave-particles {
   position: fixed;
   top: 0;

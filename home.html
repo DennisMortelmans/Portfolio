@@ -10,6 +10,7 @@
     <script src="Javascript/windowmanager.js"></script>
     <script src="Javascript/drawmanager.js"></script>
     <script src="Javascript/dataManager.js"></script>
+    <script src="Javascript/commands.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -34,10 +35,16 @@
     >
       About Me
     </button>
-    <form action="">
+    <form id="easterEggForm">
       <div>Talk to Dalo</div>
-      <input type="text" placeholder="Coming soon" name="interact" />
+      <input
+        type="text"
+        placeholder="Say something"
+        name="interact"
+        id="interactInput"
+      />
     </form>
+
     <div id="desktop"></div>
     <div id="avatar-wrapper">
       <div id="avatar-container">
@@ -77,6 +84,6 @@
       src="assets/sounds2/talking3.ogg"
       preload="auto"
     ></audio>
-    <div id="crt-overlay"></div>
+    <script src="Javascript/neon.js"></script>
   </body>
 </html>
