@@ -256,7 +256,6 @@ form > input {
   opacity: 0.5;
 }
 
-/* Particle positions and color assignments */
 .vaporwave-particles span:nth-child(1) {
   left: 10%;
   top: 80%;
@@ -293,7 +292,6 @@ form > input {
   background-color: #55def0;
 }
 
-/* Gentle hover + vertical sway */
 @keyframes drift {
   0% {
     transform: translate(0, 0);
@@ -312,7 +310,6 @@ form > input {
   }
 }
 
-/* Subtle glow shift */
 @keyframes glow {
   from {
     box-shadow: 0 0 6px 2px rgba(85, 222, 240, 0.3);
@@ -321,7 +318,46 @@ form > input {
     box-shadow: 0 0 8px 3px rgba(216, 19, 171, 0.4);
   }
 }
+@keyframes shake {
+  0% {
+    transform: translate(5px, 5px) rotate(0deg);
+  }
+  10% {
+    transform: translate(-5px, -10px) rotate(-2deg);
+  }
+  20% {
+    transform: translate(-15px, 0px) rotate(3deg);
+  }
+  30% {
+    transform: translate(15px, 10px) rotate(0deg);
+  }
+  40% {
+    transform: translate(5px, -5px) rotate(2deg);
+  }
+  50% {
+    transform: translate(-5px, 15px) rotate(-3deg);
+  }
+  60% {
+    transform: translate(-15px, 5px) rotate(0deg);
+  }
+  70% {
+    transform: translate(15px, 5px) rotate(-2deg);
+  }
+  80% {
+    transform: translate(-5px, -5px) rotate(2deg);
+  }
+  90% {
+    transform: translate(5px, 15px) rotate(0deg);
+  }
+  100% {
+    transform: translate(5px, -10px) rotate(-3deg);
+  }
+}
 
+#screen.screen-shake {
+  animation: shake 0.2s infinite;
+  will-change: transform;
+}
 @media screen and (max-width: 900px) {
   #avatar-wrapper {
     position: fixed;

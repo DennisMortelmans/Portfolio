@@ -41,6 +41,19 @@ document.addEventListener("DOMContentLoaded", function () {
           "I am an unown mythical being, HE calls me Project:Dalo .But i disagree, i dont need a name."
         );
         break;
+      case "who's helih?":
+        speakAsAvatar(
+          "Why did you have to bring up my ex wife? She's still a good friend however."
+        );
+        break;
+      case "paimon":
+        speakAsAvatar("did you mean: emergency food?");
+        break;
+      case "horror":
+        triggerHorrorMode();
+        speakAsAvatar("Something feels... wrong.");
+        break;
+
       default:
         speakAsAvatar("I don't know that , try something again.");
         break;
@@ -77,6 +90,64 @@ document.addEventListener("DOMContentLoaded", function () {
       eyeImg?.classList.remove("talking");
       buddyImg?.classList.remove("talking");
       bubble.style.display = "none";
-    }, 5000); // shorter time for command response
+    }, 5000);
+  }
+  function triggerHorrorMode() {
+    const horrorOverlay = document.createElement("div");
+    horrorOverlay.id = "horror-overlay";
+    Object.assign(horrorOverlay.style, {
+      position: "fixed",
+      top: "-50px",
+      left: "-50px",
+      width: "1000vw",
+      height: "1000vh",
+      backgroundColor: "black",
+      zIndex: "9998",
+      opacity: "0",
+      transition: "opacity 0.5s ease",
+      pointerEvents: "none",
+      mixBlendMode: "difference",
+    });
+
+    const scareImage = document.createElement("img");
+    scareImage.src = "assets/scare.png";
+    scareImage.alt = "Scary Face";
+    Object.assign(scareImage.style, {
+      position: "fixed",
+      top: "50%",
+      left: "50%",
+      transform: "translate(-50%, -50%)",
+      maxWidth: "80%",
+      maxHeight: "80%",
+      zIndex: "10000",
+      opacity: "0",
+      transition: "opacity 0.2s ease",
+      pointerEvents: "none",
+    });
+
+    document.body.appendChild(horrorOverlay);
+
+    const horrorSound = document.getElementById("horror-sound");
+    if (horrorSound) {
+      horrorSound.currentTime = 0;
+      horrorSound.play();
+    }
+
+    requestAnimationFrame(() => {
+      horrorOverlay.style.opacity = "0.95";
+      scareImage.style.opacity = "1";
+      document.body.classList.add("screen-shake");
+    });
+
+    setTimeout(() => {
+      scareImage.style.opacity = "0";
+      horrorOverlay.style.opacity = "0";
+      document.body.classList.remove("screen-shake");
+
+      setTimeout(() => {
+        scareImage.remove();
+        horrorOverlay.remove();
+      }, 500);
+    }, 3500);
   }
 });
