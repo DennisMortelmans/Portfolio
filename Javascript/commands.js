@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", function () {
         break;
       case "horror":
         triggerHorrorMode();
-        speakAsAvatar("Something feels... wrong.");
+        speakAsAvatar("A ugabugagagaga!");
         break;
 
       default:

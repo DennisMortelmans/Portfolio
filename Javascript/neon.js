@@ -12,6 +12,16 @@
     "assets/images/effects/neotunnel.png",
     "assets/images/effects/neowave.png",
     "assets/images/effects/neowave2.png",
+    "assets/images/effects/neococktail.png",
+    "assets/images/effects/neoface.png",
+    "assets/images/effects/neoerror.png",
+    "assets/images/effects/neogrid2.png",
+    "assets/images/effects/neoheart.png",
+    "assets/images/effects/neomusic.png",
+    "assets/images/effects/neotriangle.png",
+    "assets/images/effects/neotriangle2.png",
+    "assets/images/effects/neosun2.png",
+    "assets/images/effects/neoswirl.png",
   ];
 
   const bg1 = document.createElement("div");
@@ -34,12 +44,12 @@
     current.style.backgroundImage = `url('${img}')`;
     current.style.transform = `translate(${tx}px, ${ty}px) scale(${scale})`;
     current.style.opacity = randomFloat(0.45, 0.7);
-    current.style.transition = "opacity 2s ease";
+    current.style.transition = "opacity 3s ease";
     setTimeout(() => {
       current.style.opacity = 0;
     }, randomFloat(4000, 6000));
 
-    setTimeout(flicker, randomFloat(3000, 7000));
+    setTimeout(flicker, randomFloat(4000, 5000));
   }
 
   flicker();

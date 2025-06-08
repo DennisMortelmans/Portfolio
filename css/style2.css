@@ -268,12 +268,12 @@ form > input {
 }
 .vaporwave-particles span:nth-child(3) {
   left: 40%;
-  top: 75%;
+  top: 40%;
   background-color: #55def0;
 }
 .vaporwave-particles span:nth-child(4) {
   left: 55%;
-  top: 65%;
+  top: 5%;
   background-color: #d813ab;
 }
 .vaporwave-particles span:nth-child(5) {
