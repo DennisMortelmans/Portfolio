@@ -1,0 +1,73 @@
+* {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+body,
+html {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: black;
+}
+
+.scroll-container {
+  width: 100vw;
+  height: 100vh;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  /* pointer-events: none; */
+}
+
+.scroll-container::-webkit-scrollbar {
+  display: none;
+}
+.scroll-container {
+  scrollbar-width: none;
+}
+
+.office-image {
+  height: 100vh;
+  width: auto;
+}
+.cameraflip {
+  z-index: 4;
+  position: relative;
+  top: 90%;
+  left: 40%;
+}
+.cameraflip:hover {
+  background-size: cover;
+  animation: animateFrames 1s steps(8) infinite;
+}
+@keyframes animateFrames {
+  0% {
+    background-image: url("./assets/images/132.png");
+  }
+  12.5% {
+    background-image: url("./assets/images/133.png");
+  }
+  25% {
+    background-image: url("./assets/images/136.png");
+  }
+  37.5% {
+    background-image: url("./assets/images/137.png");
+  }
+  50% {
+    background-image: url("./assets/images/138.png");
+  }
+  62.5% {
+    background-image: url("./assets/images/139.png");
+  }
+  75% {
+    background-image: url("./assets/images/140.png");
+  }
+  87.5% {
+    background-image: url("./assets/images/141.png");
+  }
+  100% {
+    background-image: url("./assets/images/132.png");
+  } /* loop */
+}

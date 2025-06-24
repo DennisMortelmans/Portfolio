@@ -53,7 +53,9 @@ document.addEventListener("DOMContentLoaded", function () {
         triggerHorrorMode();
         speakAsAvatar("A ugabugagagaga!");
         break;
-
+      case "go to fnaf":
+        window.location.href = "../fnaf/launcher/index.html";
+        break;
       default:
         speakAsAvatar("I don't know that , try something again.");
         break;
